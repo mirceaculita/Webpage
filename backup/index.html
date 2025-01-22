@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <title>This is a page!</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    
+<div class="shape1"></div>
+<div class="shape2"></div>
+
+<div class="frame" id="frame">
+    <div class="window" id="window1">
+        <div class="dashboard">
+            <div class="circle">M</div>
+            <div class="infoPanel">
+                <div class="info"  onclick="slideToOne();" id="switchToOne">Info</div>
+                <div class="info"  onclick="slideToTwo();" id="switchToTwo">Knowledge</div>
+                <div class="info"></div>
+                <div class="info"></div>
+                <div class="info"></div>
+
+            </div>
+        </div>
+    
+        <div class="textPanel">
+            <div class="info"></div>
+            <div class="info"></div>
+            <div class="info"></div>
+            <div class="info"></div>
+            <div class="info"></div>
+    
+        </div>
+    </div>
+
+    <div class="window" id="window2">
+        <div class="personalInfo" id="personalInfo">
+            <div class="dashboard">
+                <div class="circle">M</div>
+                <div class="infoPanel">
+                    <div class="info"  onclick="slideToZero();" id="slideToZero">Back</div>
+                </div>
+            </div>
+            <div class="textPanel_personalInfo">
+                <h1>Personal Info</h1>
+            </div>
+
+        </div>
+
+        <div class="personalKnowledge" id="personalKnowledge">
+            <div class="dashboard">
+                <div class="circle">M</div>
+                <div class="infoPanel">
+                    <div class="info"  onclick="slideToZero();" id="slideToZero">Back</div>
+                </div>
+            </div>
+            <div class="textPanel_personalKnowledge">
+                <h1>Personal Knowledge</h1>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+
+</html>
