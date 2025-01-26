@@ -55,7 +55,7 @@ class Input {
                 this.heldDirection.splice(index, 1);
             }
         });
-
+        //Mouse input
         this.dpad_up.addEventListener("mousedown", (e) => {
             const dir = this.map["KeyW"];
             if (dir && this.heldDirection.indexOf(dir) == -1) {
@@ -109,6 +109,67 @@ class Input {
             }
         });
         this.dpad_left.addEventListener("mouseup", (e) => {
+            const dir = this.map["KeyA"];
+            const index = this.heldDirection.indexOf(dir);
+            if (index > -1) {
+                this.heldDirection.splice(index, 1);
+            }
+        });
+
+        //Touch input
+        this.dpad_up.addEventListener("pointerdown", (e) => {
+            const dir = this.map["KeyW"];
+            if (dir && this.heldDirection.indexOf(dir) == -1) {
+                this.heldDirection.unshift(dir);
+
+            }
+        });
+        this.dpad_up.addEventListener("pointerup", (e) => {
+            const dir = this.map["KeyW"];
+            const index = this.heldDirection.indexOf(dir);
+            if (index > -1) {
+                this.heldDirection.splice(index, 1);
+            }
+        });
+        
+        this.dpad_down.addEventListener("pointerdown", (e) => {
+            const dir = this.map["KeyS"];
+            if (dir && this.heldDirection.indexOf(dir) == -1) {
+                this.heldDirection.unshift(dir);
+
+            }
+        });
+        this.dpad_down.addEventListener("pointerup", (e) => {
+            const dir = this.map["KeyS"];
+            const index = this.heldDirection.indexOf(dir);
+            if (index > -1) {
+                this.heldDirection.splice(index, 1);
+            }
+        });
+        
+        this.dpad_right.addEventListener("pointerdown", (e) => {
+            const dir = this.map["KeyD"];
+            if (dir && this.heldDirection.indexOf(dir) == -1) {
+                this.heldDirection.unshift(dir);
+
+            }
+        });
+        this.dpad_right.addEventListener("pointerup", (e) => {
+            const dir = this.map["KeyD"];
+            const index = this.heldDirection.indexOf(dir);
+            if (index > -1) {
+                this.heldDirection.splice(index, 1);
+            }
+        });
+        
+        this.dpad_left.addEventListener("pointerdown", (e) => {
+            const dir = this.map["KeyA"];
+            if (dir && this.heldDirection.indexOf(dir) == -1) {
+                this.heldDirection.unshift(dir);
+
+            }
+        });
+        this.dpad_left.addEventListener("pointerup", (e) => {
             const dir = this.map["KeyA"];
             const index = this.heldDirection.indexOf(dir);
             if (index > -1) {

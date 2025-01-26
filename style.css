@@ -127,26 +127,26 @@ body{
     }
 
     .dpad{
-    padding-top: 27%;
+    padding-top: 29%;
     padding-left: 46%;
-    background-size: 23vw;
+    background-size: 30vw;
     }
 
     #dpad_up{
-        width: 8vw;
-        height: 8vw;
+        width: 10vw;
+        height: 10vw;
     }
     #dpad_down{
-        width: 8vw;
-        height: 8vw;
+        width: 10vw;
+        height: 10vw;
     }
     #dpad_left{
-        width: 10vw;
-        height: 8vw;
+        width: 14vw;
+        height: 10vw;
     }
     #dpad_right{
-        width: 10vw;
-        height: 8vw;
+        width: 14vw;
+        height: 10vw;
     }
 }
 
