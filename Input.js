@@ -7,6 +7,7 @@ class Input {
             "KeyA": "Left",
             "KeyD": "Right",
         }
+        this.body = document.getElementById("body");
         this.dPad = document.getElementById("D_Pad");
         this.dpad_up = document.getElementById("dpad_up");
         this.dpad_down = document.getElementById("dpad_down");
@@ -37,9 +38,15 @@ class Input {
         return this.heldDirection[0];
     }
 
-
+ 
 
     init() {
+
+        document.addEventListener('touchmove', ev => {
+              ev.preventDefault();
+              ev.stopImmediatePropagation();
+          }, { passive: false });
+
         document.addEventListener("keydown", key => {
             const dir = this.map[key.code];
             if (dir && this.heldDirection.indexOf(dir) == -1) {
