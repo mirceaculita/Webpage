@@ -34,49 +34,54 @@ body, html {
 }
 
 .consoleFrame{
-    width: 60vw; /* Set the width as a percentage of the viewport width */
+    width: 100vw; /* Set the width as a percentage of the viewport width */
     height: 100%;
-    background-image: url("./BACKGROUND/console_frame.png");
+    background-image: url("./BACKGROUND/console_frame_2.png");
     background-repeat: no-repeat;
-    background-position:top;
+    background-position:center;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: start;
-    flex-direction: column;
+    flex-direction: row-reverse;
     
 }
 
 .game-canvas{
-    padding-top: 11%;
+    padding-bottom: 1%;
+    padding-left: 1.45%;
     image-rendering: pixelated;
-    width: 55vw; /* Set the width as a percentage of the viewport width */
+    width: 57.5vw; /* Set the width as a percentage of the viewport width */
     height: auto; /* Keep the aspect ratio */
 }
 
 .controls{
     display: flex;
-    width: 100%;
-    height: auto;
+    justify-content: center;
+    align-items: center;
+    /* border-style: solid;
+    border-width: 1px;
+    border-color: red; */
+    width: auto;
+    height: 20vw;
     touch-action: none;
     user-select: none;
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;
+    padding-left: 5.5%;
 }
 .dpad{
-    padding-top: 13%;
-    padding-left: 51%;
-    width: auto;
-    height: 12vw;
-    background-image: url(/BACKGROUND/dpad_none.png);
+    width: 14vw;
+    height: 14vw;
+    background-image: url(./BACKGROUND/dpad_none.png);
     background-repeat: no-repeat;
     background-position:center;
     background-size: 14vw;
     position: relative;
     display: flex;
-    align-items: end;
-    justify-content: end; 
+    padding-left: 5%;
+
     touch-action: none;
     user-select: none;
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
@@ -92,6 +97,7 @@ body, html {
     flex-direction: column;
     align-items: center;
     justify-content: center; 
+
     touch-action: none;
     user-select: none;
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
@@ -99,36 +105,42 @@ body, html {
     -webkit-user-select: none; 
 }
 
+.xAxis{
+    display: flex;
+    flex-direction: row;
+    padding-right: 11%;
+}
+
 #dpad_up{
     border-style: solid;
-    border-color: rgba(0, 255, 0, 0);
+    border-color: rgba(26, 189, 26, 0);
     border-width: 1px;
     background-color: rgba(240, 248, 255, 0);
-    width: 5vw;
+    width: 6vw;
     height: 5vw;
-}
+}   
 #dpad_down{
     border-style: solid;
-    border-color: rgba(0, 255, 0, 0);
+    border-color: rgba(26, 189, 26, 0);
     border-width: 1px;
     background-color: rgba(240, 248, 255, 0);
-    width: 5vw;
+    width: 6vw;
     height: 5vw;
 }
 #dpad_left{
     border-style: solid;
-    border-color: rgba(0, 255, 0, 0);
+    border-color: rgba(26, 189, 26, 0);
     border-width: 1px;
     background-color: rgba(240, 248, 255, 0);
-    width: 8vw;
+    width: 6vw;
     height: 5vw;
 }
 #dpad_right{
     border-style: solid;
-    border-color: rgba(0, 255, 0, 0);
+    border-color: rgba(26, 189, 26, 0);
     border-width: 1px;
     background-color: rgba(240, 248, 255, 0);
-    width: 8vw;
+    width: 6vw;
     height: 5vw;
 }
 
