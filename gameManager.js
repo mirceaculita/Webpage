@@ -34,13 +34,13 @@ class gameManager {
         this.world = new World({
             width: 19,
             height: 10,
-            src: "world/Desert1.png"
+            src: "./world/Desert1.png"
         });
         this.player = new Player({
             x: 0*16,
             y: 0*16,
-            srcIdle: "characters/Fisherman_idle.png",
-            srcWalking: "characters/Fisherman_walk.png"
+            srcIdle: "./characters/Fisherman_idle.png",
+            srcWalking: "./characters/Fisherman_walk.png"
         });
 
         this.directionInput = new Input();

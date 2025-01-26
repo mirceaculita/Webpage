@@ -19,19 +19,19 @@ class Input {
     get direction() {
         switch (this.heldDirection[0]) {
             case "Up":
-                this.dPad.style.backgroundImage = "url(/BACKGROUND/dpad_up.png)";
+                this.dPad.style.backgroundImage = "url(./BACKGROUND/dpad_up.png)";
                 break;
             case "Down":
-                this.dPad.style.backgroundImage = "url(/BACKGROUND/dpad_down.png)";
+                this.dPad.style.backgroundImage = "url(./BACKGROUND/dpad_down.png)";
                 break;
             case "Left":
-                this.dPad.style.backgroundImage = "url(/BACKGROUND/dpad_left.png)";
+                this.dPad.style.backgroundImage = "url(./BACKGROUND/dpad_left.png)";
                 break;
             case "Right":
-                this.dPad.style.backgroundImage = "url(/BACKGROUND/dpad_right.png)";
+                this.dPad.style.backgroundImage = "url(./BACKGROUND/dpad_right.png)";
                 break;
             default:
-                this.dPad.style.backgroundImage = "url(/BACKGROUND/dpad_none.png)";
+                this.dPad.style.backgroundImage = "url(./BACKGROUND/dpad_none.png)";
                 break;
         }
         return this.heldDirection[0];
