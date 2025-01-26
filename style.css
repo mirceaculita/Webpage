@@ -28,7 +28,7 @@ body{
 .consoleFrame{
     width: 60vw; /* Set the width as a percentage of the viewport width */
     height: 100%;
-    background-image: url("/BACKGROUND/console\ frame.png");
+    background-image: url("./BACKGROUND/console_frame.png");
     background-repeat: no-repeat;
     background-position:top;
     background-size: cover;
