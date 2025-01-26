@@ -73,6 +73,10 @@ body, html {
     align-items: end;
     justify-content: end; 
     touch-action: none;
+    user-select: none;
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none; 
 }
 
 .buttons{
@@ -84,6 +88,10 @@ body, html {
     align-items: center;
     justify-content: center; 
     touch-action: none;
+    user-select: none;
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none; 
 }
 
 #dpad_up{
