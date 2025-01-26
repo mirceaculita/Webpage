@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <title>This is a page!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="gameWindow">
+        <div class="consoleFrame">
+            <canvas class="game-canvas" width="304" height="160px"></canvas>
+            <div class="controls">
+                <div class="dpad" id="D_Pad">
+                    <div class="buttons">
+                        <button class="button" id="dpad_up"></button>
+                        <div class="xAxis">
+                            <button class="button" id="dpad_left"></button>
+                            <button class="button" id="dpad_right"></button>
+                        </div>
+                        <button class="button" id="dpad_down"></button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="Input.js" defer></script>
+    <script src="ground.js" defer></script>
+    <script src="gameManager.js" defer></script>
+    <script src="gameObject.js" defer></script>
+    <script src="World.js" defer></script>
+    <script src="Player.js" defer></script>
+    <script src="sprite.js" defer></script>
+    <script src="init.js" defer></script>
+</body>
+
+
+</html>
