@@ -37,8 +37,8 @@ class gameManager {
             src: "./world/Desert1.png"
         });
         this.player = new Player({
-            x: 0*16,
-            y: 0*16,
+            x: 5*16,
+            y: 8*16,
             srcIdle: "./characters/Fisherman_idle.png",
             srcWalking: "./characters/Fisherman_walk.png"
         });

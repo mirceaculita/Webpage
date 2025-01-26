@@ -55,7 +55,7 @@ class Player extends gameObject {
         }
         var roundedFuturePositionColumn = Math.round(futurePlayerColumn);
         var roundedFuturePositionLine = Math.round(futurePlayerLine);
-        if ((futurePlayerColumn < 19 && futurePlayerColumn > -1) && (futurePlayerLine < 10 && futurePlayerLine > -1)){
+        if ((futurePlayerColumn < 18 && futurePlayerColumn > -0.2) && (futurePlayerLine < 9.5 && futurePlayerLine > 0)){
             try {
                 var futureTile = props0[roundedFuturePositionLine][roundedFuturePositionColumn];
             } catch (error) {
