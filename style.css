@@ -20,6 +20,7 @@ body, html {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;   
     touch-action: none;
+    overflow: scroll;
 }
 
 .gameWindow{
