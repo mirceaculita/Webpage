@@ -4,6 +4,8 @@ html{
     margin: 0;
     overflow: hidden;
     height: 100dvh;
+    min-width: -webkit-fill-available;
+    min-height: -webkit-fill-available;
 }
 
 body{
@@ -14,6 +16,8 @@ body{
     flex-direction: row;
     align-items: top;
     justify-content: center;
+    min-width: -webkit-fill-available;
+    min-height: -webkit-fill-available;
 }
 
 body, html {
