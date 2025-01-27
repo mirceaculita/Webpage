@@ -13,35 +13,43 @@ class Input {
         this.dpad_down = document.getElementById("dpad_down");
         this.dpad_left = document.getElementById("dpad_left");
         this.dpad_right = document.getElementById("dpad_right");
+        this.interact_A = document.getElementById("interact_A");
+        this.interact_B = document.getElementById("interact_B");
+        this.dPad_Img_Src_Arr = ["./BACKGROUND/dpad_up.png", "./BACKGROUND/dpad_down.png", "./BACKGROUND/dpad_left.png","./BACKGROUND/dpad_right.png","./BACKGROUND/dpad_none.png"];
     }
 
 
 
-    get direction() {
+    get direction() {        
+        var preloadedImages = [];
+        for(let i=0;i<this.dPad_Img_Src_Arr.length;i++){
+
+            preloadedImages[i] = new Image();
+            preloadedImages[i].src = this.dPad_Img_Src_Arr[i];
+          }
         switch (this.heldDirection[0]) {
             case "Up":
-                this.dPad.style.backgroundImage = "url(./BACKGROUND/dpad_up.png)";
+                this.dPad.style.backgroundImage = "url("+preloadedImages[0].src+")";
                 break;
             case "Down":
-                this.dPad.style.backgroundImage = "url(./BACKGROUND/dpad_down.png)";
+                this.dPad.style.backgroundImage = "url("+preloadedImages[1].src+")";
                 break;
             case "Left":
-                this.dPad.style.backgroundImage = "url(./BACKGROUND/dpad_left.png)";
+                this.dPad.style.backgroundImage = "url("+preloadedImages[2].src+")";
                 break;
             case "Right":
-                this.dPad.style.backgroundImage = "url(./BACKGROUND/dpad_right.png)";
+                this.dPad.style.backgroundImage = "url("+preloadedImages[3].src+")";
                 break;
             default:
-                this.dPad.style.backgroundImage = "url(./BACKGROUND/dpad_none.png)";
+                this.dPad.style.backgroundImage = "url("+preloadedImages[4].src+")";
                 break;
         }
         return this.heldDirection[0];
     }
 
- 
-
     init() {
 
+          
         document.addEventListener('touchmove', ev => {
               ev.preventDefault();
               ev.stopImmediatePropagation();
@@ -121,6 +129,34 @@ class Input {
             if (index > -1) {
                 this.heldDirection.splice(index, 1);
             }
+        });
+
+        //Desktop interact
+        this.interact_A.addEventListener("mousedown", (e) => {
+            this.interact_A.style.backgroundColor = "rgba(0, 0, 0, 0.239)";
+        });
+        this.interact_A.addEventListener("mouseup", (e) => {
+            this.interact_A.style.backgroundColor = "transparent";
+        });
+        this.interact_B.addEventListener("mousedown", (e) => {
+            this.interact_B.style.backgroundColor = "rgba(0, 0, 0, 0.239)";
+        });
+        this.interact_B.addEventListener("mouseup", (e) => {
+            this.interact_B.style.backgroundColor = "transparent";
+        });
+
+        //Touch interact
+        this.interact_A.addEventListener("pointerdown", (e) => {
+            this.interact_A.style.backgroundColor = "rgba(0, 0, 0, 0.239)";
+        });
+        this.interact_A.addEventListener("pointerup", (e) => {
+            this.interact_A.style.backgroundColor = "transparent";
+        });
+        this.interact_B.addEventListener("pointerdown", (e) => {
+            this.interact_B.style.backgroundColor = "rgba(0, 0, 0, 0.239)";
+        });
+        this.interact_B.addEventListener("pointerup", (e) => {
+            this.interact_B.style.backgroundColor = "transparent";
         });
 
         //Touch input
