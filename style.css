@@ -2,16 +2,18 @@
 html{
     background-color: aquamarine;
     margin: 0;
+    overflow: hidden;
 }
 
 body{
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: 100dvh;
     display: flex;
     margin: 0;
     flex-direction: row;
     align-items: top;
     justify-content: center;
+    padding-bottom: 10%;
 }
 
 body, html {
@@ -20,7 +22,6 @@ body, html {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;   
     touch-action: none;
-    overflow: scroll;
 }
 
 .gameWindow{
@@ -30,8 +31,6 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 30%;
-    overflow: scroll;
    
 }
 
@@ -51,9 +50,9 @@ body, html {
 
 .game-canvas{
     padding-bottom: 1%;
-    padding-left: 1.4%;
+    padding-left: 1.6%;
     image-rendering: pixelated;
-    width: 56.5vw; /* Set the width as a percentage of the viewport width */
+    width: 57.5vw; /* Set the width as a percentage of the viewport width */
     height: auto; /* Keep the aspect ratio */
 }
 
