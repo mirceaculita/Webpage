@@ -166,44 +166,5 @@ body, html {
     -webkit-user-select: none;
 }
 
-/* Styles for portrait orientation */
-@media (orientation: portrait) {
-    .game-canvas{
-        image-rendering: pixelated;
-        width: 97vw; /* Set the width as a percentage of the viewport width */
-        height: auto; /* Keep the aspect ratio */
-        padding-top: 12.5%;
-    }
-    .consoleFrame{
-    background-size: calc(110vw);
-    width: 100vw; /* Set the width as a percentage of the viewport width */
-    }
 
-    .gameWindow{
-    padding-top: 20%;
-    }
-
-    .dpad{
-    padding-top: 29%;
-    padding-left: 46%;
-    background-size: 30vw;
-    }
-
-    #dpad_up{
-        width: 10vw;
-        height: 10vw;
-    }
-    #dpad_down{
-        width: 10vw;
-        height: 10vw;
-    }
-    #dpad_left{
-        width: 14vw;
-        height: 10vw;
-    }
-    #dpad_right{
-        width: 14vw;
-        height: 10vw;
-    }
-}
 
