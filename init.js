@@ -2,7 +2,7 @@
     const obj = new gameManager({
         element: document.querySelector(".gameWindow")
     });
-    gameWindow = document.getElementById('gameWindow'); 
+    document.body.addEventListener('touchstart', (e) => e.preventDefault(), { passive: false });
     obj.init();
 
 })();
