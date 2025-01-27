@@ -3,6 +3,7 @@ html{
     background-color: aquamarine;
     margin: 0;
     overflow: hidden;
+    height: 100dvh;
 }
 
 body{
@@ -35,12 +36,12 @@ body, html {
 }
 
 .consoleFrame{
-    width: 100vw; /* Set the width as a percentage of the viewport width */
+    width: 100%; /* Set the width as a percentage of the viewport width */
     height: 100%;
     background-image: url("./BACKGROUND/console_frame_2.png");
     background-repeat: no-repeat;
     background-position:center;
-    background-size: cover;
+    background-size: 100vw;
     display: flex;
     align-items: center;
     justify-content: start;
