@@ -54,22 +54,22 @@ body, html {
 
 .game-canvas{
     padding-bottom: 1%;
-    padding-left: 1.4%;
+    padding-left: 1.58%;
     image-rendering: pixelated;
     width: 57.5vw; /* Set the width as a percentage of the viewport width */
     height: auto; /* Keep the aspect ratio */
-    border-style: solid;
+    /* border-style: solid;
     border-width: 1px;
-    border-color: rgb(13, 255, 0);
+    border-color: rgb(13, 255, 0); */
 }
 
 .directionControls{
     display: flex;
     justify-content: center;
     align-items: center;
-    border-style: solid;
+    /* border-style: solid;
     border-width: 1px;
-    border-color: red;
+    border-color: red; */
     width: auto;
     height: 20vw;
     padding-left: 5.5%;
@@ -95,9 +95,9 @@ body, html {
     flex-direction: column;
     align-items: center;
     justify-content: center; 
-    border-style: solid;
+    /* border-style: solid;
     border-width: 1px;
-    border-color: rgb(13, 255, 0);
+    border-color: rgb(13, 255, 0); */
 }
 
 .xAxis{
@@ -108,7 +108,7 @@ body, html {
 
 #dpad_up{
     border-style: solid;
-    border-color: rgba(7, 201, 7, 0.799);
+    border-color: rgba(7, 201, 7, 0);
     border-width: 1px;
     background-color: rgba(240, 248, 255, 0);
     width: 6vw;
@@ -116,7 +116,7 @@ body, html {
 }   
 #dpad_down{
     border-style: solid;
-    border-color: rgba(7, 201, 7, 0.799);
+    border-color: rgba(7, 201, 7, 0);
     border-width: 1px;
     background-color: rgba(240, 248, 255, 0);
     width: 6vw;
@@ -124,7 +124,7 @@ body, html {
 }
 #dpad_left{
     border-style: solid;
-    border-color: rgba(7, 201, 7, 0.799);
+    border-color: rgba(7, 201, 7, 0);
     border-width: 1px;
     background-color: rgba(240, 248, 255, 0);
     width: 6vw;
@@ -132,7 +132,7 @@ body, html {
 }
 #dpad_right{
     border-style: solid;
-    border-color: rgba(7, 201, 7, 0.799);
+    border-color: rgba(7, 201, 7, 0);
     border-width: 1px;
     background-color: rgba(240, 248, 255, 0);
     width: 6vw;
@@ -144,7 +144,7 @@ body, html {
     padding-left: 4.5%;
     padding-top: 2.6%;
     border-style: solid;
-    border-color: rgba(7, 201, 7, 0.799);
+    border-color: rgba(7, 201, 7, 0);
     border-width: 1px;
     display: flex;
     gap: 22%;
@@ -156,7 +156,7 @@ body, html {
     height: 6vw;
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0);
-    border-color: rgba(7, 201, 7, 0.799);
+    border-color: rgba(7, 201, 7, 0);
 }
 
 /* Styles for portrait orientation */
@@ -171,7 +171,7 @@ body, html {
     .game-canvas{
 
         padding-bottom: 1%;
-        padding-left: 2.4%;
+        padding-left: 2.65%;
         width: 63.3vw; /* Set the width as a percentage of the viewport width */
     }
 
