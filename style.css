@@ -2,7 +2,7 @@
 html{
     background-color: aquamarine;
     margin: 0;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 body{
