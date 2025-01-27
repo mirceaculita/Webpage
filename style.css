@@ -2,7 +2,6 @@
 html{
     background-color: aquamarine;
     margin: 0;
-    overflow: scroll;
 }
 
 body{
@@ -30,6 +29,8 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 30%;
+    overflow: scroll;
    
 }
 
@@ -49,9 +50,9 @@ body, html {
 
 .game-canvas{
     padding-bottom: 1%;
-    padding-left: 1.6%;
+    padding-left: 1.4%;
     image-rendering: pixelated;
-    width: 57.5vw; /* Set the width as a percentage of the viewport width */
+    width: 56.5vw; /* Set the width as a percentage of the viewport width */
     height: auto; /* Keep the aspect ratio */
 }
 
