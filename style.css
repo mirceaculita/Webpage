@@ -2,17 +2,22 @@
 html{
     background-color: aquamarine;
     margin: 0;
-    overflow: scroll;
+    overflow: hidden;
+    height: 100dvh;
+    min-width: -webkit-fill-available;
+    min-height: -webkit-fill-available;
 }
 
 body{
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: 100dvh;
     display: flex;
     margin: 0;
     flex-direction: row;
     align-items: top;
     justify-content: center;
+    min-width: -webkit-fill-available;
+    min-height: -webkit-fill-available;
 }
 
 body, html {
@@ -34,12 +39,12 @@ body, html {
 }
 
 .consoleFrame{
-    width: 100vw; /* Set the width as a percentage of the viewport width */
+    width: 100%; /* Set the width as a percentage of the viewport width */
     height: 100%;
     background-image: url("./BACKGROUND/console_frame_2.png");
     background-repeat: no-repeat;
     background-position:center;
-    background-size: cover;
+    background-size: 100vw;
     display: flex;
     align-items: center;
     justify-content: start;
@@ -64,11 +69,6 @@ body, html {
     border-color: red; */
     width: auto;
     height: 20vw;
-    touch-action: none;
-    user-select: none;
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;
     padding-left: 5.5%;
 }
 .dpad{
@@ -81,12 +81,7 @@ body, html {
     position: relative;
     display: flex;
     padding-left: 5%;
-
-    touch-action: none;
-    user-select: none;
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none; 
+ 
 }
 
 .buttons{
@@ -98,11 +93,6 @@ body, html {
     align-items: center;
     justify-content: center; 
 
-    touch-action: none;
-    user-select: none;
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none; 
 }
 
 .xAxis{
@@ -118,11 +108,6 @@ body, html {
     background-color: rgba(240, 248, 255, 0);
     width: 6vw;
     height: 5vw;
-    touch-action: none;
-    user-select: none;
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;
 }   
 #dpad_down{
     border-style: solid;
@@ -131,11 +116,6 @@ body, html {
     background-color: rgba(240, 248, 255, 0);
     width: 6vw;
     height: 5vw;
-    touch-action: none;
-    user-select: none;
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;
 }
 #dpad_left{
     border-style: solid;
@@ -144,11 +124,6 @@ body, html {
     background-color: rgba(240, 248, 255, 0);
     width: 6vw;
     height: 5vw;
-    touch-action: none;
-    user-select: none;
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;
 }
 #dpad_right{
     border-style: solid;
@@ -157,51 +132,24 @@ body, html {
     background-color: rgba(240, 248, 255, 0);
     width: 6vw;
     height: 5vw;
-    touch-action: none;
-    user-select: none;
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;
 }
 
 /* Styles for portrait orientation */
-@media (orientation: portrait) {
-    .game-canvas{
-        image-rendering: pixelated;
-        width: 97vw; /* Set the width as a percentage of the viewport width */
-        height: auto; /* Keep the aspect ratio */
-        padding-top: 12.5%;
-    }
+@media only screen and (hover: none) and (pointer: coarse){
     .consoleFrame{
-    background-size: calc(110vw);
-    width: 100vw; /* Set the width as a percentage of the viewport width */
+        background-size: 110vw;
     }
+    .controls{
+        padding-left: 1.8%;
+        padding-bottom: 1%;
+    }
+    .game-canvas{
 
-    .gameWindow{
-    padding-top: 20%;
-    }
-
-    .dpad{
-    padding-top: 29%;
-    padding-left: 46%;
-    background-size: 30vw;
-    }
-
-    #dpad_up{
-        width: 10vw;
-        height: 10vw;
-    }
-    #dpad_down{
-        width: 10vw;
-        height: 10vw;
-    }
-    #dpad_left{
-        width: 14vw;
-        height: 10vw;
-    }
-    #dpad_right{
-        width: 14vw;
-        height: 10vw;
+        padding-bottom: 1%;
+        padding-left: 2.4%;
+        width: 63.3vw; /* Set the width as a percentage of the viewport width */
     }
 }
+
+
 
