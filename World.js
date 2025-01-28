@@ -23,7 +23,7 @@ class World {
             [props10, props11, props12],
             [props20, props21, props22]
         ]
-        this.mapCoordinates = [1,2];
+        this.mapCoordinates = [0,0];
     }
 
 
