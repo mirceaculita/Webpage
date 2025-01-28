@@ -19,6 +19,10 @@ class Input {
     }
 
 
+    
+
+    /* WHEN PRESSING INTERACT IF THERE IS NOTHING IN FRONT OF PLAYER SAY SOMETHING RANDOM. iF THERE IS SOMETHING IN FRON OF THE PLAYER
+    SAY SOMETHING ABOUT THE ITEM OR INTERACT WITH IT */
 
     get direction() {        
         var preloadedImages = [];
@@ -26,7 +30,8 @@ class Input {
 
             preloadedImages[i] = new Image();
             preloadedImages[i].src = this.dPad_Img_Src_Arr[i];
-          }
+        }
+        
         switch (this.heldDirection[0]) {
             case "Up":
                 this.dPad.style.backgroundImage = "url("+preloadedImages[0].src+")";
