@@ -1,10 +1,11 @@
-class sprite {
+class Sprite {
     constructor(config) {
+        this.visible = true;
 
         this.walkingImage = new Image();
         this.idleImage = new Image();
 
-        this.image = new Image();
+        this.image = this.idleImage;
         this.walkingImage.onload = () => {
             this.isWalkingLoaded = true;
         }
@@ -34,10 +35,11 @@ class sprite {
             ]
         }
 
+        this.moveState = "idle";
         this.currentAnimation = "Down";
         this.currentAnimationFrame = 0;
 
-        this.animationFrameLimit = config.animationFrameLimit || 16;
+        this.animationFrameLimit = config.animationFrameLimit || 8;
         this.animationFrameProgress = this.animationFrameProgress;
 
         this.gameObject = config.gameObject;
@@ -45,10 +47,12 @@ class sprite {
 
     setMovingState(moveState) {
         if (moveState == "idle" && this.isWalkingLoaded && this.isIdleLoaded) {
+            this.moveState = moveState;
             this.image = this.idleImage;
         }
         
         if (moveState == "walk" && this.isWalkingLoaded && this.isIdleLoaded) {
+            this.moveState = moveState;
             this.image = this.walkingImage;
         }
     }
@@ -80,6 +84,7 @@ class sprite {
     }
 
     draw(context) {
+        if(this.visible){
         const x = this.gameObject.x;
         const y = this.gameObject.y;
         const [frameX, frameY] = this.frame;
@@ -90,6 +95,6 @@ class sprite {
             16, 24
         )
 
-        this.updateAnimationProgress();
+        this.updateAnimationProgress();}
     }
 }

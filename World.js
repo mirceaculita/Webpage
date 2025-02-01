@@ -24,35 +24,44 @@ class World {
             [props20, props21, props22]
         ]
         this.mapCoordinates = [0,0];
+
+        this.NPCs = config.NPCs;
     }
 
 
-    updatePlayerPosition(playerColumn, playerLine) {
+    updateMapLevel(dir) {
         //Leave map right
-        if(playerColumn >= 19){
-            this.playerObj.updatePositionNextLevel(playerColumn-19, playerLine);
+        if(dir == "Right"){
             this.mapCoordinates = [this.mapCoordinates[0],this.mapCoordinates[1]+1];
         }
         //Leave map left
-        if(playerColumn <= -1){
-            this.playerObj.updatePositionNextLevel(playerColumn+19, playerLine);
+        if(dir == "Left"){
             this.mapCoordinates = [this.mapCoordinates[0],this.mapCoordinates[1]-1];
         }
         //Leave map down
-        if(playerLine >= 10){
-            this.playerObj.updatePositionNextLevel(playerColumn, playerLine-10);
+        if(dir == "Down"){
             this.mapCoordinates = [this.mapCoordinates[0]+1,this.mapCoordinates[1]];
         }
         //Leave map up
-        if(playerLine <= -1){
-            this.playerObj.updatePositionNextLevel(playerColumn, playerLine+10);
+        if(dir == "Up"){
             this.mapCoordinates = [this.mapCoordinates[0]-1,this.mapCoordinates[1]];
         }
+
     }
 
 
 
     draw(context) {
+        
+        //Update NPC positions
+        for(let i = 0; i<this.NPCs.length; i++){
+            if((this.NPCs[i].level[0] != this.mapCoordinates[0]) || (this.NPCs[i].level[1] != this.mapCoordinates[1])){
+                this.NPCs[i].sprite.visible = false;
+            }
+            else{
+                this.NPCs[i].sprite.visible = true;
+            }
+        }
         
         this.ground = this.mapGround[this.mapCoordinates[0]][this.mapCoordinates[1]];
         this.props = this.mapProps[this.mapCoordinates[0]][this.mapCoordinates[1]];
