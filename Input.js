@@ -181,15 +181,37 @@ class Input {
         //Touch interact
         this.interact_A.addEventListener("pointerdown", (e) => {
             this.interact_A.style.backgroundColor = "rgba(0, 0, 0, 0.239)";
+
+            const dir = "IntA";
+            if (dir && this.heldInteract.indexOf(dir) == -1) {
+                this.heldInteract.unshift(dir);
+            }
         });
         this.interact_A.addEventListener("pointerup", (e) => {
             this.interact_A.style.backgroundColor = "transparent";
+            
+            const dir = "IntA";
+            const index = this.heldInteract.indexOf(dir);
+            if (index > -1) {
+                this.heldInteract.splice(index, 1);
+            }
         });
         this.interact_B.addEventListener("pointerdown", (e) => {
             this.interact_B.style.backgroundColor = "rgba(0, 0, 0, 0.239)";
+
+            const dir = "IntB";
+            if (dir && this.heldInteract.indexOf(dir) == -1) {
+                this.heldInteract.unshift(dir);
+            }
         });
         this.interact_B.addEventListener("pointerup", (e) => {
             this.interact_B.style.backgroundColor = "transparent";
+            
+            const dir = "IntB";
+            const index = this.heldInteract.indexOf(dir);
+            if (index > -1) {
+                this.heldInteract.splice(index, 1);
+            }
         });
 
         //Touch input

@@ -256,6 +256,9 @@ html {
         padding-top: 1.42%;
         gap: 25%;
     }
+    .speakerImage{
+        background-size: 60%;
+    }
 
     #interact_A,
     #interact_B {
