@@ -1,12 +1,13 @@
 <html>
-    <meta http-equiv='cache-control' content='no-cache'> 
-    <meta http-equiv='expires' content='0'> 
-    <meta http-equiv='pragma' content='no-cache'>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-    <meta name=apple-mobile-web-app-capable content=yes>
-    <meta name=apple-mobile-web-app-status-bar-style content=black>
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="The Fish Guy">
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name=apple-mobile-web-app-capable content=yes>
+<meta name=apple-mobile-web-app-status-bar-style content=black>
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="The Fish Guy">
+
 <head>
     <title>The Fish Guy</title>
     <link rel="stylesheet" href="style.css">
@@ -16,12 +17,20 @@
 
     <div class="gameWindow" id="gameWindow">
         <div class="coords" id="playerCoords"></div>
+
         <div class="consoleFrame">
             <div class="interactControls">
                 <button class="button" id="interact_A"></button>
                 <button class="button" id="interact_B"></button>
             </div>
-            <canvas class="game-canvas" width="304" height="160px"></canvas>
+            <div class="game-div" width="304px" height="160px">
+                <canvas class="game-canvas" width="304px" height="160px"></canvas>
+                <div class="dialogBox" id="dialogBoxDiv">
+                    <div class="speakerImage" id="speakerImage"></div>
+                    <div class="message" id="messageText">awdakalkwdlajladliawjdl a ldjilwaj lajlkaw jlawj lawjdlawj ldk</div>
+                </div>
+
+            </div>
             <div class="directionControls">
                 <div class="dpad" id="D_Pad">
                     <div class="buttons">
@@ -41,6 +50,7 @@
     </div>
 
     <script src="Input.js" defer></script>
+    <script src="Dialog.js" defer></script>
     <script src="ground.js" defer></script>
     <script src="GameManager.js" defer></script>
     <script src="GameObject.js" defer></script>
@@ -49,7 +59,7 @@
     <script src="Player.js" defer></script>
     <script src="Sprite.js" defer></script>
     <script src="init.js" defer></script>
-    
+
 </body>
 
 

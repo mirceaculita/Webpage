@@ -10,17 +10,31 @@ class Player extends GameObject {
         }
         this.world = config.world;
         this.coordDebug = document.getElementById("playerCoords");
+        this.dialogManager = config.dialogManager;
     }
 
     updateIO(state) {
-        if (this.directionUpdate[state.direction] != undefined) {
-            this.direction = state.direction;
-            this.sprite.setAnimation(this.direction);
-            this.sprite.setMovingState("walk");
-            this.checkCollision();
+        if (this.dialogManager.active == false) {
+            if (this.directionUpdate[state.direction] != undefined) {
+                this.direction = state.direction;
+                this.sprite.setAnimation(this.direction);
+                this.sprite.setMovingState("walk");
+                this.checkCollision();
+            }
+            else {
+                this.sprite.setMovingState("idle");
+            }
         }
         else {
             this.sprite.setMovingState("idle");
+        }
+
+        if (state.interact == "IntA") {
+            this.dialogManager.say("Fisherman","I like fish");
+        }
+        
+        if (state.interact == "IntB") {
+            this.dialogManager.stopDialog();
         }
     }
 
@@ -105,14 +119,10 @@ class Player extends GameObject {
     }
 
     movePlayer() {
-
         //movePlayer
         const [axis, changeValue] = this.directionUpdate[this.direction]
         this[axis] += changeValue;
-
-        //send player pos to world object
-
-        //this.coordDebug.innerHTML = "Player X: " + this.x + " Player Y: " + this.y;
+        // this.dialogManager.say("test");
     }
 
 }

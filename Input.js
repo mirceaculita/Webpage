@@ -1,11 +1,14 @@
 class Input {
     constructor() {
         this.heldDirection = [];
+        this.heldInteract = [];
         this.map = {
             "KeyW": "Up",
             "KeyS": "Down",
             "KeyA": "Left",
             "KeyD": "Right",
+            "IntA": "InterA",
+            "IntB": "InterB",
         }
         this.body = document.getElementById("body");
         this.dPad = document.getElementById("D_Pad");
@@ -23,6 +26,10 @@ class Input {
 
     /* WHEN PRESSING INTERACT IF THERE IS NOTHING IN FRONT OF PLAYER SAY SOMETHING RANDOM. iF THERE IS SOMETHING IN FRON OF THE PLAYER
     SAY SOMETHING ABOUT THE ITEM OR INTERACT WITH IT */
+
+    get interact(){
+        return this.heldInteract[0];
+    }
 
     get direction() {        
         var preloadedImages = [];
@@ -80,7 +87,6 @@ class Input {
             const dir = this.map["KeyW"];
             if (dir && this.heldDirection.indexOf(dir) == -1) {
                 this.heldDirection.unshift(dir);
-
             }
         });
         this.dpad_up.addEventListener("mouseup", (e) => {
@@ -139,15 +145,37 @@ class Input {
         //Desktop interact
         this.interact_A.addEventListener("mousedown", (e) => {
             this.interact_A.style.backgroundColor = "rgba(0, 0, 0, 0.239)";
+
+            const dir = "IntA";
+            if (dir && this.heldInteract.indexOf(dir) == -1) {
+                this.heldInteract.unshift(dir);
+            }
         });
         this.interact_A.addEventListener("mouseup", (e) => {
             this.interact_A.style.backgroundColor = "transparent";
+            
+            const dir = "IntA";
+            const index = this.heldInteract.indexOf(dir);
+            if (index > -1) {
+                this.heldInteract.splice(index, 1);
+            }
         });
         this.interact_B.addEventListener("mousedown", (e) => {
             this.interact_B.style.backgroundColor = "rgba(0, 0, 0, 0.239)";
+
+            const dir = "IntB";
+            if (dir && this.heldInteract.indexOf(dir) == -1) {
+                this.heldInteract.unshift(dir);
+            }
         });
         this.interact_B.addEventListener("mouseup", (e) => {
             this.interact_B.style.backgroundColor = "transparent";
+            
+            const dir = "IntB";
+            const index = this.heldInteract.indexOf(dir);
+            if (index > -1) {
+                this.heldInteract.splice(index, 1);
+            }
         });
 
         //Touch interact

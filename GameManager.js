@@ -1,12 +1,13 @@
 class GameManager {
     constructor(config) {
         this.element = config.element;
+        this.dialogBoxDiv = config.dialogBoxDiv;
         this.canvas = this.element.querySelector(".game-canvas");
         this.context = this.canvas.getContext("2d");
         this.player = null;
         this.Alchemist = null;
         this.world = null;
-        this.IO = config.directionInput;
+        this.IO = config.directionInput; 
     }
 
 
@@ -37,7 +38,8 @@ class GameManager {
 
                 this.player.sprite.draw(this.context);
                 this.player.updateIO({
-                    direction: this.IO.direction
+                    direction: this.IO.direction,
+                    interact: this.IO.interact
                 });
             }
 
@@ -48,6 +50,9 @@ class GameManager {
     }
 
     init() {
+        
+        this.dialogManager = new Dialog();
+
         this.world = new World({
             width: 19,
             height: 10,
@@ -74,11 +79,12 @@ class GameManager {
             y: 8 * 16,
             srcIdle: "./characters/Fisherman_idle.png",
             srcWalking: "./characters/Fisherman_walk.png",
-            world: this.world
+            world: this.world,
+            dialogManager: this.dialogManager
         });
         this.IO = new Input();
         this.IO.init();
-
+        
         this.startGameLoop();
     }
 
