@@ -18,42 +18,39 @@ class Input {
         this.dpad_right = document.getElementById("dpad_right");
         this.interact_A = document.getElementById("interact_A");
         this.interact_B = document.getElementById("interact_B");
-        this.dPad_Img_Src_Arr = ["./BACKGROUND/dpad_up.png", "./BACKGROUND/dpad_down.png", "./BACKGROUND/dpad_left.png","./BACKGROUND/dpad_right.png","./BACKGROUND/dpad_none.png"];
+        this.dPad_Img_Src_Arr = ["./BACKGROUND/dpad_up.png", "./BACKGROUND/dpad_down.png", "./BACKGROUND/dpad_left.png", "./BACKGROUND/dpad_right.png", "./BACKGROUND/dpad_none.png"];
     }
-
-
-    
 
     /* WHEN PRESSING INTERACT IF THERE IS NOTHING IN FRONT OF PLAYER SAY SOMETHING RANDOM. iF THERE IS SOMETHING IN FRON OF THE PLAYER
     SAY SOMETHING ABOUT THE ITEM OR INTERACT WITH IT */
 
-    get interact(){
+    get interact() {
         return this.heldInteract[0];
     }
 
-    get direction() {        
+    get direction() {
         var preloadedImages = [];
-        for(let i=0;i<this.dPad_Img_Src_Arr.length;i++){
+        for (let i = 0; i < this.dPad_Img_Src_Arr.length; i++) {
 
             preloadedImages[i] = new Image();
             preloadedImages[i].src = this.dPad_Img_Src_Arr[i];
         }
-        
+
         switch (this.heldDirection[0]) {
             case "Up":
-                this.dPad.style.backgroundImage = "url("+preloadedImages[0].src+")";
+                this.dPad.style.backgroundImage = "url(" + preloadedImages[0].src + ")";
                 break;
             case "Down":
-                this.dPad.style.backgroundImage = "url("+preloadedImages[1].src+")";
+                this.dPad.style.backgroundImage = "url(" + preloadedImages[1].src + ")";
                 break;
             case "Left":
-                this.dPad.style.backgroundImage = "url("+preloadedImages[2].src+")";
+                this.dPad.style.backgroundImage = "url(" + preloadedImages[2].src + ")";
                 break;
             case "Right":
-                this.dPad.style.backgroundImage = "url("+preloadedImages[3].src+")";
+                this.dPad.style.backgroundImage = "url(" + preloadedImages[3].src + ")";
                 break;
             default:
-                this.dPad.style.backgroundImage = "url("+preloadedImages[4].src+")";
+                this.dPad.style.backgroundImage = "url(" + preloadedImages[4].src + ")";
                 break;
         }
         return this.heldDirection[0];
@@ -61,11 +58,11 @@ class Input {
 
     init() {
 
-          
+
         document.addEventListener('touchmove', ev => {
-              ev.preventDefault();
-              ev.stopImmediatePropagation();
-          }, { passive: false });
+            ev.preventDefault();
+            ev.stopImmediatePropagation();
+        }, { passive: false });
 
         document.addEventListener("keydown", key => {
             const dir = this.map[key.code];
@@ -82,6 +79,7 @@ class Input {
                 this.heldDirection.splice(index, 1);
             }
         });
+
         //Mouse input
         this.dpad_up.addEventListener("mousedown", (e) => {
             const dir = this.map["KeyW"];
@@ -96,7 +94,7 @@ class Input {
                 this.heldDirection.splice(index, 1);
             }
         });
-        
+
         this.dpad_down.addEventListener("mousedown", (e) => {
             const dir = this.map["KeyS"];
             if (dir && this.heldDirection.indexOf(dir) == -1) {
@@ -111,7 +109,7 @@ class Input {
                 this.heldDirection.splice(index, 1);
             }
         });
-        
+
         this.dpad_right.addEventListener("mousedown", (e) => {
             const dir = this.map["KeyD"];
             if (dir && this.heldDirection.indexOf(dir) == -1) {
@@ -119,6 +117,7 @@ class Input {
 
             }
         });
+
         this.dpad_right.addEventListener("mouseup", (e) => {
             const dir = this.map["KeyD"];
             const index = this.heldDirection.indexOf(dir);
@@ -126,7 +125,7 @@ class Input {
                 this.heldDirection.splice(index, 1);
             }
         });
-        
+
         this.dpad_left.addEventListener("mousedown", (e) => {
             const dir = this.map["KeyA"];
             if (dir && this.heldDirection.indexOf(dir) == -1) {
@@ -153,7 +152,7 @@ class Input {
         });
         this.interact_A.addEventListener("mouseup", (e) => {
             this.interact_A.style.backgroundColor = "transparent";
-            
+
             const dir = "IntA";
             const index = this.heldInteract.indexOf(dir);
             if (index > -1) {
@@ -170,7 +169,7 @@ class Input {
         });
         this.interact_B.addEventListener("mouseup", (e) => {
             this.interact_B.style.backgroundColor = "transparent";
-            
+
             const dir = "IntB";
             const index = this.heldInteract.indexOf(dir);
             if (index > -1) {
@@ -189,7 +188,7 @@ class Input {
         });
         this.interact_A.addEventListener("pointerup", (e) => {
             this.interact_A.style.backgroundColor = "transparent";
-            
+
             const dir = "IntA";
             const index = this.heldInteract.indexOf(dir);
             if (index > -1) {
@@ -206,7 +205,7 @@ class Input {
         });
         this.interact_B.addEventListener("pointerup", (e) => {
             this.interact_B.style.backgroundColor = "transparent";
-            
+
             const dir = "IntB";
             const index = this.heldInteract.indexOf(dir);
             if (index > -1) {
@@ -229,7 +228,7 @@ class Input {
                 this.heldDirection.splice(index, 1);
             }
         });
-        
+
         this.dpad_down.addEventListener("pointerdown", (e) => {
             const dir = this.map["KeyS"];
             if (dir && this.heldDirection.indexOf(dir) == -1) {
@@ -244,7 +243,7 @@ class Input {
                 this.heldDirection.splice(index, 1);
             }
         });
-        
+
         this.dpad_right.addEventListener("pointerdown", (e) => {
             const dir = this.map["KeyD"];
             if (dir && this.heldDirection.indexOf(dir) == -1) {
@@ -259,7 +258,7 @@ class Input {
                 this.heldDirection.splice(index, 1);
             }
         });
-        
+
         this.dpad_left.addEventListener("pointerdown", (e) => {
             const dir = this.map["KeyA"];
             if (dir && this.heldDirection.indexOf(dir) == -1) {
@@ -274,6 +273,6 @@ class Input {
                 this.heldDirection.splice(index, 1);
             }
         });
-        
+
     }
 }
