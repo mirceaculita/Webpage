@@ -10,23 +10,58 @@ class Player extends GameObject {
         }
         this.world = config.world;
         this.coordDebug = document.getElementById("playerCoords");
+        this.dialogManager = config.dialogManager;
+        this.lookingAt = null;
     }
 
     updateIO(state) {
-        if (this.directionUpdate[state.direction] != undefined) {
-            this.direction = state.direction;
-            this.sprite.setAnimation(this.direction);
-            this.sprite.setMovingState("walk");
-            this.checkCollision();
+        if (this.dialogManager.active == false) {
+            if (this.directionUpdate[state.direction] != undefined) {
+                this.direction = state.direction;
+                this.sprite.setAnimation(this.direction);
+                this.sprite.setMovingState("walk");
+                this.checkCollision();
+            }
+            else {
+                this.sprite.setMovingState("idle");
+            }
         }
         else {
             this.sprite.setMovingState("idle");
+        }
+
+        if (state.interact == "IntA") {
+            this.interactWithWorld();
+        }
+
+        if (state.interact == "IntB") {
+            this.dialogManager.stopDialog();
         }
     }
 
     updatePositionNextLevel(newX, newY) {
         this.x = newX * 16;
         this.y = newY * 16;
+    }
+
+    interactWithWorld() {
+        switch (this.lookingAt) {
+            //cactus
+            case 0:
+                this.dialogManager.say("Fisherman", "I have to be careful around these cacti...");
+                break;
+            //bush
+            case 1:
+                this.dialogManager.say("Fisherman", "This bush is small enough I can walk around it...");
+                break;
+            //sign
+            case 6:
+                this.dialogManager.say("Fisherman", "The sign is too old and I can't read what is on it...");
+                break;
+            default:
+                this.dialogManager.say("Fisherman", "I like fish...");
+                break;
+        }
     }
 
     checkCollision() {
@@ -61,7 +96,7 @@ class Player extends GameObject {
         roundedFuturePositionX = Math.round(futurePlayerX);
         roundedFuturePositionY = Math.round(futurePlayerY);
 
-        //Check if player is whithin world borders or if it must move to other plane
+        //Check if player is within world borders or if it must move to other plane
         if (futurePlayerX > worldBorders[0]) {
             if (futurePlayerX < worldBorders[1]) {
                 if (futurePlayerY > worldBorders[2]) {
@@ -73,8 +108,9 @@ class Player extends GameObject {
                             console.log("Error fetching tile at coords from props array", roundedFuturePositionY, roundedFuturePositionX)
                         }
 
+                        this.lookingAt = futureTile;
                         //If the tile in front is not a collider you can move
-                        if (futureTile != 0) {
+                        if (futureTile != 0 && futureTile != 6) {
                             this.movePlayer();
                         }
                     }
@@ -105,14 +141,10 @@ class Player extends GameObject {
     }
 
     movePlayer() {
-
         //movePlayer
         const [axis, changeValue] = this.directionUpdate[this.direction]
         this[axis] += changeValue;
-
-        //send player pos to world object
-
-        //this.coordDebug.innerHTML = "Player X: " + this.x + " Player Y: " + this.y;
+        // this.dialogManager.say("test");
     }
 
 }

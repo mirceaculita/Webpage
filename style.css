@@ -1,5 +1,4 @@
-
-html{
+html {
     background-color: aquamarine;
     margin: 0;
     overflow: hidden;
@@ -8,7 +7,7 @@ html{
     min-height: -webkit-fill-available;
 }
 
-body{
+body {
     width: auto;
     height: 100dvh;
     display: flex;
@@ -20,39 +19,44 @@ body{
     min-height: -webkit-fill-available;
 }
 
-body, html {
+body,
+html {
     user-select: none;
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;   
+    -webkit-touch-callout: none;
+    /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;
+    /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;
     touch-action: none;
 }
 
-.gameWindow{
+.gameWindow {
     width: 100%;
     height: 100%;
-    background-color: aquamarine; 
+    background-color: aquamarine;
     display: flex;
     align-items: center;
     justify-content: center;
-   
+
 }
 
-.consoleFrame{
-    width: 100%; /* Set the width as a percentage of the viewport width */
+
+.consoleFrame {
+    width: 100%;
+    /* Set the width as a percentage of the viewport width */
     height: 100%;
     background-image: url("./BACKGROUND/console_frame_2.png");
     background-repeat: no-repeat;
-    background-position:center;
+    background-position: center;
     background-size: 100vw;
     display: flex;
     align-items: center;
     justify-content: start;
     flex-direction: row-reverse;
-    
+
 }
 
-.coords{
+.coords {
     content: 'aaa';
     width: auto;
     height: auto;
@@ -62,18 +66,62 @@ body, html {
     top: 85%;
 }
 
-.game-canvas{
-    padding-bottom: 1%;
-    padding-left: 1.58%;
+.game-div {
     image-rendering: pixelated;
-    width: 57.5vw; /* Set the width as a percentage of the viewport width */
-    height: auto; /* Keep the aspect ratio */
+    width: 58vw;
+    height: auto;
+    padding-left: 1.6%;
+    padding-bottom: 0.9%;
+    position: relative;
     /* border-style: solid;
     border-width: 1px;
     border-color: rgb(13, 255, 0); */
 }
 
-.directionControls{
+.game-canvas{
+    image-rendering: pixelated;
+    width: 99%; 
+    height: auto; 
+    /* border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 0, 234); */
+}
+
+.dialogBox {
+    width: 57.4vw;
+    height: 10vw;
+    background-color: white;
+    position: absolute;
+    top: 0%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    visibility: hidden;
+}
+
+.message{
+    height: auto;
+    width: 80%;
+    text-align: center;
+    font-size: 2vw;
+    /* border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 0, 234); */
+}
+
+.speakerImage{
+    width: 30%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 10vw;
+    background-image: url(./characters/Fisherman_profile.png);
+    /* border-style: solid;
+    border-width: 1px;
+    border-color: rgb(255, 0, 234); */
+}
+
+.directionControls {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,63 +132,40 @@ body, html {
     height: 20vw;
     padding-left: 5.5%;
 }
-.dpad{
+
+.dpad {
     width: 14vw;
     height: 14vw;
     background-image: url(./BACKGROUND/dpad_none.png);
     background-repeat: no-repeat;
-    background-position:center;
+    background-position: center;
     background-size: 14vw;
     position: relative;
     display: flex;
     padding-left: 5%;
- 
+
 }
 
-.buttons{
+.buttons {
     width: 100%;
     height: 100%;
     position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     /* border-style: solid;
     border-width: 1px;
     border-color: rgb(13, 255, 0); */
 }
 
-.xAxis{
+.xAxis {
     display: flex;
     flex-direction: row;
     padding-right: 11%;
 }
 
-#dpad_up{
-    border-style: solid;
-    border-color: rgba(7, 201, 7, 0);
-    border-width: 1px;
-    background-color: rgba(240, 248, 255, 0);
-    width: 6vw;
-    height: 5vw;
-}   
-#dpad_down{
-    border-style: solid;
-    border-color: rgba(7, 201, 7, 0);
-    border-width: 1px;
-    background-color: rgba(240, 248, 255, 0);
-    width: 6vw;
-    height: 5vw;
-}
-#dpad_left{
-    border-style: solid;
-    border-color: rgba(7, 201, 7, 0);
-    border-width: 1px;
-    background-color: rgba(240, 248, 255, 0);
-    width: 6vw;
-    height: 5vw;
-}
-#dpad_right{
+#dpad_up {
     border-style: solid;
     border-color: rgba(7, 201, 7, 0);
     border-width: 1px;
@@ -149,7 +174,34 @@ body, html {
     height: 5vw;
 }
 
-.interactControls{
+#dpad_down {
+    border-style: solid;
+    border-color: rgba(7, 201, 7, 0);
+    border-width: 1px;
+    background-color: rgba(240, 248, 255, 0);
+    width: 6vw;
+    height: 5vw;
+}
+
+#dpad_left {
+    border-style: solid;
+    border-color: rgba(7, 201, 7, 0);
+    border-width: 1px;
+    background-color: rgba(240, 248, 255, 0);
+    width: 6vw;
+    height: 5vw;
+}
+
+#dpad_right {
+    border-style: solid;
+    border-color: rgba(7, 201, 7, 0);
+    border-width: 1px;
+    background-color: rgba(240, 248, 255, 0);
+    width: 6vw;
+    height: 5vw;
+}
+
+.interactControls {
     height: 20vw;
     padding-left: 4.5%;
     padding-top: 2.6%;
@@ -161,7 +213,8 @@ body, html {
     flex-direction: column;
 }
 
-#interact_A, #interact_B{
+#interact_A,
+#interact_B {
     width: 6vw;
     height: 6vw;
     border-radius: 50%;
@@ -170,33 +223,42 @@ body, html {
 }
 
 /* Styles for portrait orientation */
-@media only screen and (hover: none) and (pointer: coarse){
-    .consoleFrame{
+@media only screen and (hover: none) and (pointer: coarse) {
+    .consoleFrame {
         background-size: 110vw;
     }
-    .directionControls{
+
+    .directionControls {
         padding-left: 1.5%;
         padding-bottom: 1%;
     }
-    .game-canvas{
 
-        padding-bottom: 1%;
-        padding-left: 2.65%;
-        width: 63.3vw; /* Set the width as a percentage of the viewport width */
+    .game-div {
+        width: 63.3vw;
+        /* Set the width as a percentage of the viewport width */
     }
 
-    .interactControls{
+    .game-canvas {
+        padding-bottom: 0.2%;
+        padding-left: 2%;
+        /* Set the width as a percentage of the viewport width */
+    }   
+    .dialogBox {
+        
+    width: 62.5vw;
+    left: 4.5%;
+    }
+
+    .interactControls {
         height: 20vw;
         padding-left: 5.1%;
         padding-top: 1.42%;
         gap: 25%;
     }
 
-    #interact_A, #interact_B{
+    #interact_A,
+    #interact_B {
         width: 6.3vw;
         height: 6.3vw;
     }
 }
-
-
-
