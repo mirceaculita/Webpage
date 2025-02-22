@@ -49,6 +49,7 @@ class Dialog {
             this.dialogBox.style.visibility = "hidden";
             this.canStopDialog = false;
         }
+        
     }
 
 }
