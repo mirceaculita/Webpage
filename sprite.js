@@ -43,6 +43,10 @@ class Sprite {
         this.animationFrameProgress = this.animationFrameProgress;
 
         this.gameObject = config.gameObject;
+
+        this.spriteWidth = config.spriteWidth || 16;
+        this.spriteHeight = config.spriteHeight || 24;
+        this.spriteOffsetY = config.spriteOffsetY || 14;
     }
 
     setMovingState(moveState) {
@@ -89,10 +93,10 @@ class Sprite {
         const y = this.gameObject.y;
         const [frameX, frameY] = this.frame;
         context.drawImage(this.image,
-            frameX * 16, frameY * 24,
-            16, 24,
-            x, y-14,
-            16, 24
+            frameX * this.spriteWidth, frameY * this.spriteHeight,
+            this.spriteWidth, this.spriteHeight,
+            x, y-this.spriteOffsetY,
+            this.spriteWidth, this.spriteHeight
         )
 
         this.updateAnimationProgress();}

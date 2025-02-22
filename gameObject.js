@@ -6,6 +6,10 @@ class GameObject{
             gameObject: this,
             srcIdle: config.srcIdle,
             srcWalking: config.srcWalking,
+            spriteHeight: config.spriteHeight,
+            spriteWidth: config.spriteWidth,
+            animation: config.animation,
+            spriteOffsetY: config.spriteOffsetY
         });
     }
 
