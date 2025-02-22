@@ -48,7 +48,6 @@ class GameManager {
                 this.bird.sprite.draw(this.context);
                 this.bird.advanceNpcOnPath();
 
-                // this.dialogBubble.draw(this.context);dwa
             }
 
             requestAnimationFrame(iter);

@@ -7,9 +7,13 @@ class Dialog {
         this.speed = 20;
         this.messageProgress = 0;
         this.messageText = null;
+        this.canStopDialog = false;
     }
 
     say(speaker, message) {
+
+        this.canStopDialog = false;
+        console.log("dialog in progress " + this.dialogInProgress);
         if (this.active == false) {
             if (this.dialogBox == undefined) {
                 this.dialogBox = document.getElementById("dialogBoxDiv");
@@ -29,15 +33,22 @@ class Dialog {
 
     typeWriter(message, i) {
         setTimeout(() => {
-            // console.log(message.charAt(i));
+            console.log(message.charAt(i));
+            if (i == message.length - 1) {
+                this.canStopDialog = true;
+                console.log("dialog in progress " + this.dialogInProgress);
+            }
             this.dialogMessage.innerHTML += message.charAt(i);
         }, this.speed * i);
     }
     stopDialog() {
-        this.active = false;
-        this.dialogMessage.innerHTML = "";
-        this.messageProgress = 0;
-        this.dialogBox.style.visibility = "hidden";
+        if (this.canStopDialog == true) {
+            this.active = false;
+            this.dialogMessage.innerHTML = "";
+            this.messageProgress = 0;
+            this.dialogBox.style.visibility = "hidden";
+            this.canStopDialog = false;
+        }
     }
 
 }

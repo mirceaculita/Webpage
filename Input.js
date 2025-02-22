@@ -18,6 +18,7 @@ class Input {
         this.dpad_right = document.getElementById("dpad_right");
         this.interact_A = document.getElementById("interact_A");
         this.interact_B = document.getElementById("interact_B");
+        this.interacting = false;
         this.dPad_Img_Src_Arr = ["./BACKGROUND/dpad_up.png", "./BACKGROUND/dpad_down.png", "./BACKGROUND/dpad_left.png", "./BACKGROUND/dpad_right.png", "./BACKGROUND/dpad_none.png"];
     }
 
@@ -25,7 +26,17 @@ class Input {
     SAY SOMETHING ABOUT THE ITEM OR INTERACT WITH IT */
 
     get interact() {
-        return this.heldInteract[0];
+        if (this.heldInteract[0] != undefined) {
+            if (this.interacting == false) {
+                this.interacting = true;
+                return this.heldInteract[0];
+            }
+            else {
+                return undefined;
+            }
+        }
+        else
+            return undefined;
     }
 
     get direction() {
@@ -144,15 +155,16 @@ class Input {
         //Desktop interact
         this.interact_A.addEventListener("mousedown", (e) => {
             this.interact_A.style.backgroundColor = "rgba(0, 0, 0, 0.239)";
-
             const dir = "IntA";
+            console.log("mousedown");
             if (dir && this.heldInteract.indexOf(dir) == -1) {
                 this.heldInteract.unshift(dir);
             }
+
         });
         this.interact_A.addEventListener("mouseup", (e) => {
             this.interact_A.style.backgroundColor = "transparent";
-
+            this.interacting = false;
             const dir = "IntA";
             const index = this.heldInteract.indexOf(dir);
             if (index > -1) {

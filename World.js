@@ -81,6 +81,8 @@ class World {
         for (let i = 0; i < this.height; i++) {
             for (let j = 0; j < this.width; j++) {
                 var tile = this.props[i][j];
+                if(tile > 60)
+                    tile = 6;
                 var coordX = 0;
                 var coordY = 0;
                 if (tile <= 3) {

@@ -11,6 +11,7 @@ class Player extends GameObject {
         this.world = config.world;
         this.coordDebug = document.getElementById("playerCoords");
         this.dialogManager = config.dialogManager;
+        this.interacting = false;
         this.lookingAt = null;
     }
 
@@ -30,12 +31,14 @@ class Player extends GameObject {
             this.sprite.setMovingState("idle");
         }
 
+        
         if (state.interact == "IntA") {
-            this.interactWithWorld();
-        }
-
-        if (state.interact == "IntB") {
-            this.dialogManager.stopDialog();
+            if (this.dialogManager.canStopDialog == false) {
+                this.interactWithWorld();
+            }
+            else {
+                this.dialogManager.stopDialog();
+            }
         }
     }
 
@@ -45,6 +48,8 @@ class Player extends GameObject {
     }
 
     interactWithWorld() {
+        console.log("Interact with " + this.lookingAt);
+        this.interacting = true;
         switch (this.lookingAt) {
             //cactus
             case 0:
@@ -54,9 +59,41 @@ class Player extends GameObject {
             case 1:
                 this.dialogManager.say("Fisherman", "This bush is small enough I can walk around it...");
                 break;
-            //sign
-            case 6:
-                this.dialogManager.say("Fisherman", "The sign is too old and I can't read what is on it...");
+            //sign1
+            case 61:
+                switch (this.direction) {
+                    case "Down":
+                        this.dialogManager.say("Fisherman", "I can't read this sign from the back. Maybe I should look from the front...");
+                        break;
+                    case "Up":
+                        this.dialogManager.say("Sign", "This way to merchant...");
+                        break;
+                    case "Left":
+                        this.dialogManager.say("Fisherman", "Hmm, I can't see what it says. I need to look at the front of the sign...");
+                        break;
+                    case "Right":
+                        this.dialogManager.say("Fisherman", "Hmm, I can't see what it says. I need to look at the front of the sign...");
+                        break;
+                }
+
+
+                break;
+            //sign2
+            case 62:
+                switch (this.direction) {
+                    case "Down":
+                        this.dialogManager.say("Fisherman", "I can't read this sign from the back. Maybe I should look from the front...");
+                        break;
+                    case "Up":
+                        this.dialogManager.say("Sign", "This way to something...");
+                        break;
+                    case "Left":
+                        this.dialogManager.say("Fisherman", "Hmm, I can't see what it says. I need to look at the front of the sign...");
+                        break;
+                    case "Right":
+                        this.dialogManager.say("Fisherman", "Hmm, I can't see what it says. I need to look at the front of the sign...");
+                        break;
+                }
                 break;
             default:
                 this.dialogManager.say("Fisherman", "I like fish...");
@@ -110,7 +147,7 @@ class Player extends GameObject {
 
                         this.lookingAt = futureTile;
                         //If the tile in front is not a collider you can move
-                        if (futureTile != 0 && futureTile != 6) {
+                        if (futureTile != 0 && (futureTile < 60 || futureTile == undefined)) {
                             this.movePlayer();
                         }
                     }
