@@ -47,6 +47,7 @@ class Sprite {
         this.spriteWidth = config.spriteWidth || 16;
         this.spriteHeight = config.spriteHeight || 24;
         this.spriteOffsetY = config.spriteOffsetY || 14;
+        this.spriteOffsetX = config.spriteOffsetX || 0;
     }
 
     setMovingState(moveState) {
@@ -95,7 +96,7 @@ class Sprite {
         context.drawImage(this.image,
             frameX * this.spriteWidth, frameY * this.spriteHeight,
             this.spriteWidth, this.spriteHeight,
-            x, y-this.spriteOffsetY,
+            x-this.spriteOffsetX, y-this.spriteOffsetY,
             this.spriteWidth, this.spriteHeight
         )
 

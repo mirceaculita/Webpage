@@ -7,7 +7,9 @@ class GameManager {
         this.player = null;
         this.Alchemist = null;
         this.world = null;
+        this.storyLineManager = null;
         this.IO = config.directionInput; 
+        this.interactButton = null;
     }
 
 
@@ -31,19 +33,26 @@ class GameManager {
                 this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
                 //Game Loop
+
+                //Get interact
+                this.interactButton = this.IO.interact;
+
                 //Draw world
                 this.world.draw(this.context);
 
                 //Draw NPCs
                 this.Alchemist.sprite.draw(this.context);
+                this.Alchemist.update({
+                    interact: this.interactButton
+                });
                 this.Alchemist.advanceNpcOnPath();
                 this.Merchant.sprite.draw(this.context);
 
                 //Draw player
                 this.player.sprite.draw(this.context);
-                this.player.updateIO({
+                this.player.update({
                     direction: this.IO.direction,
-                    interact: this.IO.interact
+                    interact: this.interactButton
                 });
                 this.bird.sprite.draw(this.context);
                 this.bird.advanceNpcOnPath();
@@ -59,7 +68,8 @@ class GameManager {
     init() {
         
         this.dialogManager = new Dialog();
-
+        this.storyLineManager = new StoryLineManager();
+        
         this.world = new World({
             width: 19,
             height: 10,
@@ -67,20 +77,27 @@ class GameManager {
             playerObj: this.player,
             NPCs: [this.Alchemist, this.Merchant]
         });
-        this.Alchemist = new Npc({
+        this.Alchemist = new Alchemist({
             x: 8 * 16,
             y: 8 * 16,
             level: [0, 0],
-            loopPath: true,
+            loopPath: false,
+            moving: false,
             srcIdle: "./characters/Alchemist_idle.png",
-            srcWalking: "./characters/Alchemist_walk.png"
+            srcWalking: "./characters/Alchemist_walk.png",
+            dialogManager: this.dialogManager,
+            spriteOffsetX: -7,
+            spriteOffsetY: 0,
+            storyLineManager: this.storyLineManager
         })
-        this.Merchant = new Npc({
+        this.Merchant = new Merchant({
             x: 4 * 16,
             y: 8 * 16,
             level: [1, 0],
             srcIdle: "./characters/Merchant_idle.png",
-            srcWalking: "./characters/Merchant_walk.png"
+            srcWalking: "./characters/Merchant_walk.png",
+            dialogManager: this.dialogManager,
+            storyLineManager: this.storyLineManager
         })
         this.player = new Player({
             x: 5 * 16,
@@ -88,10 +105,11 @@ class GameManager {
             srcIdle: "./characters/Fisherman_idle.png",
             srcWalking: "./characters/Fisherman_walk.png",
             world: this.world,
-            dialogManager: this.dialogManager
+            dialogManager: this.dialogManager,
+            storyLineManager: this.storyLineManager
         });
 
-        this.bird = new Npc({
+        this.bird = new Bird({
             x: -2 * 16,
             y: 5 * 16,
             level: [0, 0],
@@ -99,7 +117,6 @@ class GameManager {
             spriteWidth: 16,
             moving: "false",
             spriteHeight: 16,
-            NpcType: "bird",
             loopPath: false,
             animation: {
                 Right: [
@@ -121,6 +138,7 @@ class GameManager {
             srcIdle: "./characters/BirdSprite.png",
             srcWalking: "./characters/BirdSprite.png"
         })
+
         this.IO = new Input();
         this.IO.init();
         

@@ -9,7 +9,8 @@ class GameObject{
             spriteHeight: config.spriteHeight,
             spriteWidth: config.spriteWidth,
             animation: config.animation,
-            spriteOffsetY: config.spriteOffsetY
+            spriteOffsetY: config.spriteOffsetY,
+            spriteOffsetX: config.spriteOffsetX
         });
     }
 

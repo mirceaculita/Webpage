@@ -11,9 +11,7 @@ class Dialog {
     }
 
     say(speaker, message) {
-
         this.canStopDialog = false;
-        console.log("dialog in progress " + this.dialogInProgress);
         if (this.active == false) {
             if (this.dialogBox == undefined) {
                 this.dialogBox = document.getElementById("dialogBoxDiv");
@@ -33,10 +31,9 @@ class Dialog {
 
     typeWriter(message, i) {
         setTimeout(() => {
-            console.log(message.charAt(i));
             if (i == message.length - 1) {
                 this.canStopDialog = true;
-                console.log("dialog in progress " + this.dialogInProgress);
+                console.log("finished line");
             }
             this.dialogMessage.innerHTML += message.charAt(i);
         }, this.speed * i);

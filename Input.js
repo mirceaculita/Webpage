@@ -156,7 +156,6 @@ class Input {
         this.interact_A.addEventListener("mousedown", (e) => {
             this.interact_A.style.backgroundColor = "rgba(0, 0, 0, 0.239)";
             const dir = "IntA";
-            console.log("mousedown");
             if (dir && this.heldInteract.indexOf(dir) == -1) {
                 this.heldInteract.unshift(dir);
             }

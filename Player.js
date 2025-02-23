@@ -13,9 +13,11 @@ class Player extends GameObject {
         this.dialogManager = config.dialogManager;
         this.interacting = false;
         this.lookingAt = null;
+        this.storyLineManager = config.storyLineManager;
+        this.storyProgressValue = 0;
     }
 
-    updateIO(state) {
+    update(state) {
         if (this.dialogManager.active == false) {
             if (this.directionUpdate[state.direction] != undefined) {
                 this.direction = state.direction;
@@ -31,13 +33,12 @@ class Player extends GameObject {
             this.sprite.setMovingState("idle");
         }
 
-        
         if (state.interact == "IntA") {
             if (this.dialogManager.canStopDialog == false) {
                 this.interactWithWorld();
             }
             else {
-                this.dialogManager.stopDialog();
+                this.advanceStory();
             }
         }
     }
@@ -95,6 +96,10 @@ class Player extends GameObject {
                         break;
                 }
                 break;
+            //Alchemist
+            case 11:
+                this.dialogManager.say("Alchemist", "I cannot help anymore...");
+                break;
             default:
                 this.dialogManager.say("Fisherman", "I like fish...");
                 break;
@@ -147,7 +152,7 @@ class Player extends GameObject {
 
                         this.lookingAt = futureTile;
                         //If the tile in front is not a collider you can move
-                        if (futureTile != 0 && (futureTile < 60 || futureTile == undefined)) {
+                        if (futureTile != 0 && (futureTile < 60 || futureTile == undefined) && futureTile != 11) {
                             this.movePlayer();
                         }
                     }
@@ -182,6 +187,31 @@ class Player extends GameObject {
         const [axis, changeValue] = this.directionUpdate[this.direction]
         this[axis] += changeValue;
         // this.dialogManager.say("test");
+    }
+
+
+
+    advanceStory() {
+        switch (this.storyLineManager.storyProgress) {
+            case 1:
+                this.storyDialogSay("Fisherman", "I dont know... ");
+
+                break;
+            case 3:
+                this.storyDialogSay("Fisherman", "I mean I dont remember what happened...");
+                break;
+
+            default:
+
+                this.dialogManager.stopDialog();
+                break;
+        }
+    }
+
+    storyDialogSay(characterImage, messageText) {
+        this.dialogManager.stopDialog();
+        this.dialogManager.say(characterImage, messageText);
+        this.storyLineManager.advanceStoryLine(1);
     }
 
 }
